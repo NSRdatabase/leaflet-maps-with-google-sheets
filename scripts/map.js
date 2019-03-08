@@ -67,7 +67,7 @@ $(window).on('load', function() {
    * column in the spreadsheet.
    */
   function determineLayers(points) {
-    var layerNamesFromSpreadsheet = [];
+    var layersFromSpreadsheet = [];
     var layers = {};
     for (var i in points) {
       var pointLayerNameFromSpreadsheet = points[i].Group;
@@ -132,7 +132,7 @@ $(window).on('load', function() {
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           point['Description']); */
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-          .bindPopup("<h2 style='color:Tomato;'>Name: " + point['Name'] + "</h2><br>" +
+          .bindPopup('<h2 style="color:Tomato;">Name: ' + point['Name'] + '</h2><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           '<h4>Description: ' + point['Description'] + '</h4><br>' +
           '<h5>Notes: ' + point['Notes'] + '</h5>');
