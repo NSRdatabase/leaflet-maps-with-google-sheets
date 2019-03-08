@@ -134,8 +134,8 @@ $(window).on('load', function() {
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
           .bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
-          "Description: " + point['Description'] + '<br>' +
-          "Notes: " + point['Notes']);
+          '<h4>Description: ' + point['Description'] + '</h4><br>' +
+          '<h5>Notes: ' + point['Notes'] + '</h5>');
 
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
