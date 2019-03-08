@@ -124,11 +124,17 @@ $(window).on('load', function() {
           point['Icon Color']
         );
 
+      //this must be where the popup window is controlled
       if (point.Latitude !== '' && point.Longitude !== '') {
+        /* original code, in case mess up
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
           .bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
-          point['Description']);
+          point['Description']); */
+        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
+          .bindPopup("<b>" + point['Name'] + '</b><br>' +
+          (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
+          point['Description'] + point['Notes']);
 
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
