@@ -84,6 +84,12 @@
    <!-- incorporating Leaflet search, as per https://journocode.com/2017/02/20/javascript-interactive-map-with-search-bar-leaflet/ -->
   <script type="text/javascript" src="search/leaflet-search.src.js"></script>
   <link rel="stylesheet" href="search/leaflet-search.src.css">
+  <script type="text/javascript">
+    var searchLayer = L.layerGroup().addTo(map);
+//... adding data in searchLayer ...
+map.addControl( new L.Control.Search({layer: searchLayer}) );
+//searchLayer is a L.LayerGroup contains searched markers
+  </script>
 
 </body>
 </html>
