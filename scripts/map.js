@@ -69,7 +69,6 @@ $(window).on('load', function() {
   function determineLayers(points) {
     var layerNamesFromSpreadsheet = [];
     var layers = {};
-    var fuckfuckfuck = [];
     for (var i in points) {
       var pointLayerNameFromSpreadsheet = points[i].Group;
       if (layerNamesFromSpreadsheet.indexOf(pointLayerNameFromSpreadsheet) === -1) {
@@ -125,18 +124,11 @@ $(window).on('load', function() {
           point['Icon Color']
         );
 
-      //this must be where the popup window is controlled
       if (point.Latitude !== '' && point.Longitude !== '') {
-        /* original code, in case mess up
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
           .bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
-          point['Description']); */
-        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-          .bindPopup('<h2 style="color:Tomato;">Name: ' + point['Name'] + '</h2><br>' +
-          (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
-          '<h4>Description: ' + point['Description'] + '</h4><br>' +
-          '<h5>Notes: ' + point['Notes'] + '</h5>');
+          point['Description']);
 
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
